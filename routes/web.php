@@ -20,3 +20,4 @@ Route::post('/register', [UserController::class, 'register']);
 // Task Routes
 Route::post('/tasks', [TaskController::class, 'store']);
 Route::put('/tasks/{id}', [TaskController::class, 'update']);
+Route::get('/tasks/pending', [TaskController::class, 'pending']);

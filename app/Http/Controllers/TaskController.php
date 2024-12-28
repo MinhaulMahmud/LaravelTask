@@ -30,7 +30,7 @@ class TaskController extends Controller
 
         // Find the task and update
         $task = Task::findOrFail($id);
-        $task->is_completed = $validated['is_completed'];
+        $task->is_completed = $validated['is_completed']; #update task
         $task->save();
 
         return response()->json($task);
@@ -39,7 +39,7 @@ class TaskController extends Controller
     // Get pending tasks
     public function pending()
     {
-        $tasks = Task::where('is_completed', false)->get();
+        $tasks = Task::where('is_completed', false)->get(); #get all pending tasks where is_completed is false
         return response()->json($tasks);
     }
 }
