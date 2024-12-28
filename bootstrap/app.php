@@ -14,7 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
         //except routes from csrf protection
         $middleware->validateCsrfTokens(
             except: [
-                    '/posts', '/register'
+                    '/posts', '/register', '/tasks', '/tasks/*',
                 ]
             );
     })
