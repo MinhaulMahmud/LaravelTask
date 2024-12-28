@@ -10,6 +10,7 @@ use Illuminate\Validation\ValidationException;
 class PostController extends Controller
 {
     public function store(Request $request) {
+        #validate request
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
@@ -22,12 +23,13 @@ class PostController extends Controller
     }
 
     public function index() {
+        #get all posts
         $posts = Post::all();
-        return response()->json($posts, 200);
+        return response()->json($posts, 200); #return all post as list
     }
 
     public function show($id) {
        $post = Post::find($id);
-       return response()->json($post, 200);
+       return response()->json($post, 200); #return post with id
     }
 }
